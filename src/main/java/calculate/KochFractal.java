@@ -25,21 +25,14 @@ public class KochFractal {
     private boolean cancelled;  // Flag to indicate that calculation has been cancelled
    // private KochManager manager;
 
-//    public KochFractal(KochManager manager) {
-//        this.manager = manager;
-//    }
+   public KochFractal(float hh){
+       this.hue = hh;
+   }
 
-    private NotKochFractal notKoch;
-
-    public KochFractal(NotKochFractal NotKoch) {
-        this.notKoch = NotKoch;
-    }
-
-
-
-    private void drawKochEdge(double ax, double ay, double bx, double by, int n,  List<Edge> edges) {
+    public void drawKochEdge(double ax, double ay, double bx, double by, int n,  List<Edge> edges) {
         if (!cancelled) {
             if (n == 1) {
+                nrOfEdges = (int) (3 * Math.pow(4, level - 1));
                 hue = hue + 1.0f / nrOfEdges;
                 Edge e = new Edge(ax, ay, bx, by, Color.hsb(hue*360.0, 1.0, 1.0));
                 edges.add(e);
@@ -82,16 +75,9 @@ public class KochFractal {
         cancelled = true;
     }
 
-    public void setLevel(int lvl) {
+    public int setLevel2edges(int lvl) {
         level = lvl;
         nrOfEdges = (int) (3 * Math.pow(4, level - 1));
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public int getNrOfEdges() {
         return nrOfEdges;
     }
 }

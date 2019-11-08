@@ -45,7 +45,7 @@ public class KochManager {
         this.application = application;
         this.tsCalc = new TimeStamp();
         this.tsDraw = new TimeStamp();
-        this.koch = new NotKochFractal(this);
+        this.koch = new NotKochFractal();
 
     }
 
